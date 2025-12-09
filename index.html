@@ -31,8 +31,38 @@
           <li>Complete the last 30 units at Washington University</li>
         </ul>
       </div>
-      <div class="card box">
+      <div class="card box advisor">
         <h3>AI Academic advisor chat</h3>
+      </div>
+      <div class="card box">
+        <h3>Completed</h3>
+        <ul class="stat-list">
+          <li class="stat-item">
+            <span>Foundation</span>
+            <span class="stat-value"><span id="units-foundation">0</span> / 31</span>
+          </li>
+          <li class="stat-item">
+            <span>Business</span>
+            <span class="stat-value"><span id="units-business">0</span> / 30</span>
+          </li>
+          <li class="stat-item">
+            <span>Computer Science</span>
+            <span class="stat-value"><span id="units-cs">0</span> / 30</span>
+          </li>
+          <li class="stat-item">
+            <span>Capstone</span>
+            <span class="stat-value"><span id="units-capstone">0</span> / 6</span>
+          </li>
+          <li class="stat-item">
+            <span>Breadth/Free Electives</span>
+            <span class="stat-value"><span id="units-breadth">0</span> / 24</span>
+          </li>
+        </ul>
+        <div class="progress-sep"></div>
+        <div class="stat-total">
+          <span>Total Units</span>
+          <span class="stat-value"><span id="units-total">0</span> / 121</span>
+        </div>
       </div>
     </section>
 
@@ -40,7 +70,7 @@
       <h2>Foundation Course Requirements</h2>
       <ul class="course-list">
         <li>
-          <details class="course-item">
+          <details class="course-item" data-category="foundation">
             <summary>
               <div class="course-code">
                 <label><input type="checkbox"> <a href="#">MATH 1510</a></label>
@@ -53,7 +83,7 @@
           </details>
         </li>
         <li>
-          <details class="course-item">
+          <details class="course-item" data-category="foundation">
             <summary>
               <div class="course-code">
                 <label><input type="checkbox"> <a href="#">MATH 1520</a></label>
@@ -67,7 +97,7 @@
           </details>
         </li>
         <li>
-          <details class="course-item">
+          <details class="course-item" data-category="foundation">
             <summary>
               <div class="course-code">
                 <label><input type="checkbox"> <a href="#">MATH 2130</a></label>
@@ -81,7 +111,7 @@
           </details>
         </li>
         <li>
-          <details class="course-item">
+          <details class="course-item" data-category="foundation">
             <summary>
               <div class="course-code">
                 <label><input type="checkbox"> <a href="#">MATH 3300</a></label>
@@ -95,7 +125,7 @@
           </details>
         </li>
         <li>
-          <details class="course-item">
+          <details class="course-item" data-category="foundation">
             <summary>
               <div class="course-code">
                 <label><input type="checkbox"> <a href="#">DAT 1200</a></label>
@@ -112,7 +142,7 @@
           </details>
         </li>
         <li>
-          <details class="course-item">
+          <details class="course-item" data-category="foundation">
             <summary>
               <div class="course-code">
                 <label><input type="checkbox"> <a href="#">DAT 1201</a></label>
@@ -130,7 +160,7 @@
           </details>
         </li>
         <li>
-          <details class="course-item">
+          <details class="course-item" data-category="foundation">
             <summary>
               <div class="course-code">
                 <label><input type="checkbox"> <a href="#">MGT 2010</a></label>
@@ -147,7 +177,7 @@
           </details>
         </li>
         <li>
-          <details class="course-item">
+          <details class="course-item" data-category="foundation">
             <summary>
               <div class="course-code">
                 <label><input type="checkbox"> <a href="#">ENGR 3100</a></label>
@@ -160,7 +190,7 @@
           </details>
         </li>
         <li>
-          <details class="course-item">
+          <details class="course-item" data-category="capstone">
             <summary>
               <div class="course-code">
                 <label><input type="checkbox"> <a href="#">CWP</a></label>
@@ -174,7 +204,7 @@
           </details>
         </li>
         <li>
-          <details class="course-item">
+          <details class="course-item" data-category="capstone">
             <summary>
               <div class="course-code">
                 <label><input type="checkbox"> <a href="#">NSM</a></label>
@@ -249,52 +279,52 @@
         <h3>Business Core Course Requirements (18 units)</h3>
         <ul class="course-list">
           <li>
-            <details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">ACCT 2610</a></label></div><div class="course-main"><div class="course-name">Principles of Financial Accounting</div><div class="course-prereq">Prerequisite: Second-semester first-year standing</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Overview of the financial reporting process and the effects of economic events on the balance sheet, income statement, and cash flows.</p><p><strong>Typical periods offered:</strong> Fall, Spring, Summer.</p></div></details>
+            <details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">ACCT 2610</a></label></div><div class="course-main"><div class="course-name">Principles of Financial Accounting</div><div class="course-prereq">Prerequisite: Second-semester first-year standing</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Overview of the financial reporting process and the effects of economic events on the balance sheet, income statement, and cash flows.</p><p><strong>Typical periods offered:</strong> Fall, Spring, Summer.</p></div></details>
           </li>
           <li>
-            <details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">FIN 3150</a></label></div><div class="course-main"><div class="course-name">Capital Markets and Financial Management</div><div class="course-prereq">Prerequisites: ACCT 2610 and DAT 1200</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Principles of investing and corporate finance: time value of money, valuation, portfolio risk, capital markets, cost of capital, and investment decisions.</p><p><strong>Typical periods offered:</strong> Fall, Spring.</p></div></details>
+            <details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">FIN 3150</a></label></div><div class="course-main"><div class="course-name">Capital Markets and Financial Management</div><div class="course-prereq">Prerequisites: ACCT 2610 and DAT 1200</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Principles of investing and corporate finance: time value of money, valuation, portfolio risk, capital markets, cost of capital, and investment decisions.</p><p><strong>Typical periods offered:</strong> Fall, Spring.</p></div></details>
           </li>
           <li>
-            <details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MEC 2900</a></label></div><div class="course-main"><div class="course-name">Microeconomics</div><div class="course-prereq">Prerequisite: MATH 1510 or concurrent enrollment in MATH 1520 or MATH 2130</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Rigorous analysis of consumer and firm behavior, market structures, and decision‑making tools, including game theory.</p><p><strong>Typical periods offered:</strong> Fall, Spring, Summer.</p></div></details>
+            <details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MEC 2900</a></label></div><div class="course-main"><div class="course-name">Microeconomics</div><div class="course-prereq">Prerequisite: MATH 1510 or concurrent enrollment in MATH 1520 or MATH 2130</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Rigorous analysis of consumer and firm behavior, market structures, and decision‑making tools, including game theory.</p><p><strong>Typical periods offered:</strong> Fall, Spring, Summer.</p></div></details>
           </li>
           <li>
-            <details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MKT 3150</a></label></div><div class="course-main"><div class="course-name">Principles of Marketing</div><div class="course-prereq">Prerequisites: Sophomore standing and MEC 2900 or ECON 1011 or MGT 1000</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Overview of modern marketing management: segmentation, targeting, value creation, branding, and the marketing mix.</p><p><strong>Typical periods offered:</strong> Fall, Spring.</p></div></details>
+            <details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MKT 3150</a></label></div><div class="course-main"><div class="course-name">Principles of Marketing</div><div class="course-prereq">Prerequisites: Sophomore standing and MEC 2900 or ECON 1011 or MGT 1000</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Overview of modern marketing management: segmentation, targeting, value creation, branding, and the marketing mix.</p><p><strong>Typical periods offered:</strong> Fall, Spring.</p></div></details>
           </li>
           <li>
-            <details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">SCOT 2200</a></label></div><div class="course-main"><div class="course-name">Quantitative Business Decision Making</div><div class="course-prereq">Prerequisites: DAT 1200 and completion or concurrent enrollment in DAT 1201</div></div><div class="course-units">3</div></summary></details>
+            <details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">SCOT 2200</a></label></div><div class="course-main"><div class="course-name">Quantitative Business Decision Making</div><div class="course-prereq">Prerequisites: DAT 1200 and completion or concurrent enrollment in DAT 1201</div></div><div class="course-units">3</div></summary></details>
           </li>
           <li>
-            <details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">SCOT 3150</a></label></div><div class="course-main"><div class="course-name">Operations and Manufacturing Management</div><div class="course-prereq">Prerequisites: ACCT 2610, MEC 2900 or ECON 1011, and completion or concurrent enrollment in SCOT 2000</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Introduces core operations topics: inventory, process design and control, quality, facility layout, and forecasting in manufacturing and services.</p><p><strong>Typical periods offered:</strong> Fall, Spring.</p></div></details>
+            <details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">SCOT 3150</a></label></div><div class="course-main"><div class="course-name">Operations and Manufacturing Management</div><div class="course-prereq">Prerequisites: ACCT 2610, MEC 2900 or ECON 1011, and completion or concurrent enrollment in SCOT 2000</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Introduces core operations topics: inventory, process design and control, quality, facility layout, and forecasting in manufacturing and services.</p><p><strong>Typical periods offered:</strong> Fall, Spring.</p></div></details>
           </li>
         </ul>
         <h3>Electives (choose 12 units)</h3>
         <ul class="course-list">
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">DAT 3015</a></label></div><div class="course-main"><div class="course-name">Data Analytics in Python</div><div class="course-prereq">Prerequisite: Sophomore standing</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">FIN 4480</a></label></div><div class="course-main"><div class="course-name">Advanced Financial Management</div><div class="course-prereq">Prerequisites: FIN 3150 and DAT 1201</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">FIN 4510</a></label></div><div class="course-main"><div class="course-name">Options, Futures and Derivative Securities</div><div class="course-prereq">Prerequisites: FIN 3150, DAT 1201, and MATH 1520</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MEC 4710</a></label></div><div class="course-main"><div class="course-name">Empirical Techniques for Industry Analysis</div><div class="course-prereq">Prerequisites: MEC 2900, DAT 1200, DAT 1201</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MKT 3780</a></label></div><div class="course-main"><div class="course-name">Marketing Research</div><div class="course-prereq">Prerequisites: MKT 3150, DAT 1200, and DAT 1201 or concurrent enrollment in DAT 1201</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MKT 4001</a></label></div><div class="course-main"><div class="course-name">Digital Marketing and Analytics</div><div class="course-prereq">Prerequisites: MKT 3150 and either DAT 1200, MATH 2200, MATH 3200, or ESE 3260</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">SCOT 4300</a></label></div><div class="course-main"><div class="course-name">Operations Fun: Data Driven Optimization</div><div class="course-prereq">Prerequisite: SCOT 2000</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Data‑driven linear and integer programming with real‑world case studies across domains.</p><p><strong>Typical periods offered:</strong> Fall.</p></div></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">SCOT 4580</a></label></div><div class="course-main"><div class="course-name">Operations Analytics</div><div class="course-prereq">Prerequisite: SCOT 3150</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Models and techniques for planning, scheduling, forecasting, and inventory control in operations.</p><p><strong>Typical periods offered:</strong> Spring.</p></div></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">DAT 3015</a></label></div><div class="course-main"><div class="course-name">Data Analytics in Python</div><div class="course-prereq">Prerequisite: Sophomore standing</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">FIN 4480</a></label></div><div class="course-main"><div class="course-name">Advanced Financial Management</div><div class="course-prereq">Prerequisites: FIN 3150 and DAT 1201</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">FIN 4510</a></label></div><div class="course-main"><div class="course-name">Options, Futures and Derivative Securities</div><div class="course-prereq">Prerequisites: FIN 3150, DAT 1201, and MATH 1520</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MEC 4710</a></label></div><div class="course-main"><div class="course-name">Empirical Techniques for Industry Analysis</div><div class="course-prereq">Prerequisites: MEC 2900, DAT 1200, DAT 1201</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MKT 3780</a></label></div><div class="course-main"><div class="course-name">Marketing Research</div><div class="course-prereq">Prerequisites: MKT 3150, DAT 1200, and DAT 1201 or concurrent enrollment in DAT 1201</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MKT 4001</a></label></div><div class="course-main"><div class="course-name">Digital Marketing and Analytics</div><div class="course-prereq">Prerequisites: MKT 3150 and either DAT 1200, MATH 2200, MATH 3200, or ESE 3260</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">SCOT 4300</a></label></div><div class="course-main"><div class="course-name">Operations Fun: Data Driven Optimization</div><div class="course-prereq">Prerequisite: SCOT 2000</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Data‑driven linear and integer programming with real‑world case studies across domains.</p><p><strong>Typical periods offered:</strong> Fall.</p></div></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">SCOT 4580</a></label></div><div class="course-main"><div class="course-name">Operations Analytics</div><div class="course-prereq">Prerequisite: SCOT 3150</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Models and techniques for planning, scheduling, forecasting, and inventory control in operations.</p><p><strong>Typical periods offered:</strong> Spring.</p></div></details></li>
         </ul>
       </details>
       <details>
         <summary>Strategy &amp; Leadership Cluster</summary>
         <h3>Business Core Course Requirements (15 units)</h3>
         <ul class="course-list">
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">ACCT 2610</a></label></div><div class="course-main"><div class="course-name">Principles of Financial Accounting</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">FIN 3150</a></label></div><div class="course-main"><div class="course-name">Capital Markets and Financial Management</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MEC 2900</a></label></div><div class="course-main"><div class="course-name">Microeconomics</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MGT 1000</a></label></div><div class="course-main"><div class="course-name">Individual in a Managerial Environment</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">OB 3150</a></label></div><div class="course-main"><div class="course-name">Organization Behavior Within the Firm</div><div class="course-prereq">MGT 1000 or Sophomore standing</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">ACCT 2610</a></label></div><div class="course-main"><div class="course-name">Principles of Financial Accounting</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">FIN 3150</a></label></div><div class="course-main"><div class="course-name">Capital Markets and Financial Management</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MEC 2900</a></label></div><div class="course-main"><div class="course-name">Microeconomics</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MGT 1000</a></label></div><div class="course-main"><div class="course-name">Individual in a Managerial Environment</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">OB 3150</a></label></div><div class="course-main"><div class="course-name">Organization Behavior Within the Firm</div><div class="course-prereq">MGT 1000 or Sophomore standing</div></div><div class="course-units">3</div></summary></details></li>
         </ul>
         <h3>Electives (choose 15 units)</h3>
         <ul class="course-list">
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MEC 3700</a></label></div><div class="course-main"><div class="course-name">Game Theory for Business</div><div class="course-prereq">MEC 2900 or ECON 4001</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MEC 4700</a></label></div><div class="course-main"><div class="course-name">Industrial Economics</div><div class="course-prereq">MEC 3700</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MGT 3800</a></label></div><div class="course-main"><div class="course-name">Business Strategy</div><div class="course-prereq">MEC 2900 or ECON 4001</div></div><div class="course-units">3</div></summary></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MGT 4020</a></label></div><div class="course-main"><div class="course-name">Ethical Issues in Managerial Decision Making</div><div class="course-prereq">Senior Standing</div></div><div class="course-units">1.5</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MEC 3700</a></label></div><div class="course-main"><div class="course-name">Game Theory for Business</div><div class="course-prereq">MEC 2900 or ECON 4001</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MEC 4700</a></label></div><div class="course-main"><div class="course-name">Industrial Economics</div><div class="course-prereq">MEC 3700</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MGT 3800</a></label></div><div class="course-main"><div class="course-name">Business Strategy</div><div class="course-prereq">MEC 2900 or ECON 4001</div></div><div class="course-units">3</div></summary></details></li>
+          <li><details class="course-item" data-category="business"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MGT 4020</a></label></div><div class="course-main"><div class="course-name">Ethical Issues in Managerial Decision Making</div><div class="course-prereq">Senior Standing</div></div><div class="course-units">1.5</div></summary></details></li>
           <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MGT 4210</a></label></div><div class="course-main"><div class="course-name">Introduction to Entrepreneurship</div></div><div class="course-units">3</div></summary></details></li>
           <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">MGT 4603</a></label></div><div class="course-main"><div class="course-name">Introduction to Social Entrepreneurship</div></div><div class="course-units">3</div></summary></details></li>
           <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href="#">OB 4300</a></label></div><div class="course-main"><div class="course-name">Management and Corporate Responsibility</div></div><div class="course-units">3</div></summary></details></li>
@@ -311,9 +341,9 @@
         <summary>Computer Science Course Requirements</summary>
         <h3>Computer Science Core Course Requirements (9 units, C- or better)</h3>
         <ul class="course-list">
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href=\"#\">CSE 1301</a></label></div><div class="course-main"><div class="course-name">Introduction to Computer Science</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Problem solving through algorithms, abstraction, and object‑oriented programming in Java; includes recursion and simple data structures.</p><p><strong>Typical periods offered:</strong> Fall, Spring, Summer.</p></div></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href=\"#\">CSE 2407</a></label></div><div class="course-main"><div class="course-name">Data Structures and Algorithms</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Fundamental algorithms and data structures with worst‑case analysis; emphasizes scalability and effective implementation.</p><p><strong>Typical periods offered:</strong> Fall, Spring, Summer.</p></div></details></li>
-          <li><details class="course-item"><summary><div class="course-code"><label><input type="checkbox"> <a href=\"#\">CSE 3302</a></label></div><div class="course-main"><div class="course-name">Object-Oriented Software Development Laboratory</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Practical software design and debugging with extensive C++ studio and lab work.</p><p><strong>Typical periods offered:</strong> Fall, Spring, Summer.</p></div></details></li>
+          <li><details class="course-item" data-category="cs"><summary><div class="course-code"><label><input type="checkbox"> <a href=\"#\">CSE 1301</a></label></div><div class="course-main"><div class="course-name">Introduction to Computer Science</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Problem solving through algorithms, abstraction, and object‑oriented programming in Java; includes recursion and simple data structures.</p><p><strong>Typical periods offered:</strong> Fall, Spring, Summer.</p></div></details></li>
+          <li><details class="course-item" data-category="cs"><summary><div class="course-code"><label><input type="checkbox"> <a href=\"#\">CSE 2407</a></label></div><div class="course-main"><div class="course-name">Data Structures and Algorithms</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Fundamental algorithms and data structures with worst‑case analysis; emphasizes scalability and effective implementation.</p><p><strong>Typical periods offered:</strong> Fall, Spring, Summer.</p></div></details></li>
+          <li><details class="course-item" data-category="cs"><summary><div class="course-code"><label><input type="checkbox"> <a href=\"#\">CSE 3302</a></label></div><div class="course-main"><div class="course-name">Object-Oriented Software Development Laboratory</div></div><div class="course-units">3</div></summary><div class="course-extra"><p><strong>Description:</strong> Practical software design and debugging with extensive C++ studio and lab work.</p><p><strong>Typical periods offered:</strong> Fall, Spring, Summer.</p></div></details></li>
         </ul>
         <h3>Computer Science Electives (choose 21 units)</h3>
         <p>Choose seven courses from any CSE courses with a Workday course tag of CSE Applications, CSE Machines, CSE Systems, or CSE Theory. CSE 1302, CSE 2400, CSE 3050, and CSE 3407 count as electives in this category. ESE 4170 is also accepted as a CSE elective.</p>
@@ -326,6 +356,57 @@
       </details>
     </section>
   </main>
+  <script>
+    (function () {
+      const totals = {
+        foundation: 31,
+        business: 30,
+        cs: 30,
+        capstone: 6,
+        breadth: 24
+      };
+      const out = {
+        foundation: document.getElementById('units-foundation'),
+        business: document.getElementById('units-business'),
+        cs: document.getElementById('units-cs'),
+        capstone: document.getElementById('units-capstone'),
+        breadth: document.getElementById('units-breadth'),
+        total: document.getElementById('units-total')
+      };
+      function sumCategory(category) {
+        let sum = 0;
+        document.querySelectorAll('details.course-item[data-category=\"' + category + '\"]').forEach(d => {
+          const checkbox = d.querySelector('summary input[type=\"checkbox\"]');
+          if (checkbox && checkbox.checked) {
+            const unitsEl = d.querySelector('.course-units');
+            if (unitsEl) {
+              const n = parseFloat(unitsEl.textContent.trim());
+              if (!isNaN(n)) sum += n;
+            }
+          }
+        });
+        return sum;
+      }
+      function recalc() {
+        const f = sumCategory('foundation');
+        const b = sumCategory('business');
+        const c = sumCategory('cs');
+        const cap = sumCategory('capstone');
+        const br = sumCategory('breadth'); // currently none; placeholder for future
+        out.foundation.textContent = f;
+        out.business.textContent = b;
+        out.cs.textContent = c;
+        out.capstone.textContent = cap;
+        out.breadth.textContent = br;
+        const total = f + b + c + cap + br;
+        out.total.textContent = total;
+      }
+      document.querySelectorAll('summary input[type=\"checkbox\"]').forEach(cb => {
+        cb.addEventListener('change', recalc);
+      });
+      recalc();
+    }());
+  </script>
 </body>
 </html>
 

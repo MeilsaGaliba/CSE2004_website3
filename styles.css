@@ -1,4 +1,4 @@
-/* Minimal, plain styles */
+/* Basic styles */
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -59,6 +59,8 @@ details { margin-top: 8px; }
   .grid-2 { grid-template-columns: 1fr 1fr; }
 }
 .box { min-height: 140px; }
+.advisor { grid-row: span 2; }
+.grid-2 .card { margin: 0; }
 
 /* Course list layout */
 .course-list { list-style: none; padding: 0; margin: 0; }
@@ -105,5 +107,25 @@ details { margin-top: 8px; }
   padding: 0 12px 12px 36px; /* indent under the summary row */
   color: #374151;
   font-size: 14px;
+}
+
+.stat-list { list-style: none; padding: 0; margin: 0; }
+.stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+.stat-value { color: #b91c1c; font-weight: 700; }
+.progress-sep {
+  border-top: 3px solid #b91c1c;
+  margin: 8px 0 6px;
+}
+.stat-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
 }
 
