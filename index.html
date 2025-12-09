@@ -33,6 +33,12 @@
       </div>
       <div class="card box advisor">
         <h3>AI Academic advisor chat</h3>
+        <div id="chat">
+          <div id="chat-messages" class="course-extra"></div>
+          <form id="chat-form">
+            <input id="chat-input" type="text" placeholder="Ask about requirements, courses, plans..." style="width:100%;padding:8px;border:1px solid #e5e7eb;border-radius:8px;margin-top:8px" />
+          </form>
+        </div>
       </div>
       <div class="card box">
         <h3>Completed</h3>
@@ -405,6 +411,44 @@
         cb.addEventListener('change', recalc);
       });
       recalc();
+    }());
+
+    (function () {
+      const form = document.getElementById('chat-form');
+      const input = document.getElementById('chat-input');
+      const box = document.getElementById('chat-messages');
+      if (!form || !input || !box) return;
+
+      function append(role, text) {
+        const p = document.createElement('p');
+        p.textContent = (role === 'user' ? 'You: ' : 'Advisor: ') + text;
+        box.appendChild(p);
+        box.scrollTop = box.scrollHeight;
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const q = input.value.trim();
+        if (!q) return;
+        append('user', q);
+        input.value = '';
+        const thinking = document.createElement('p');
+        thinking.textContent = 'Advisor: ...';
+        box.appendChild(thinking);
+        try {
+          const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: q })
+          });
+          const data = await res.json();
+          thinking.remove();
+          append('assistant', data.reply || 'Sorry, no response.');
+        } catch (err) {
+          thinking.remove();
+          append('assistant', 'Error contacting advisor server.');
+        }
+      });
     }());
   </script>
 </body>
