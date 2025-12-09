@@ -11,7 +11,7 @@ header {
   background: #fff;
 }
 .bar {
-  max-width: 960px;
+  width: 90%;
   margin: 0 auto;
   padding: 12px 16px;
   display: flex;
@@ -28,7 +28,7 @@ nav a {
   border-radius: 6px;
 }
 main {
-  max-width: 960px;
+  width: 90%;
   margin: 24px auto;
   padding: 0 16px;
 }
@@ -38,6 +38,8 @@ main {
   padding: 8px 12px;
   margin: 16px 0;
   font-weight: 600;
+  font-size: 20px;
+  color: #b91c1c;
 }
 .card {
   border: 1px solid #e5e7eb;
@@ -57,5 +59,52 @@ details { margin-top: 8px; }
   .grid-2 { grid-template-columns: 1fr 1fr; }
 }
 .box { min-height: 140px; }
+
+/* Course list layout */
+.course-list { list-style: none; padding: 0; margin: 0; }
+.course-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin: 8px 0;
+  transition: background-color .15s ease, border-color .15s ease;
+  overflow: hidden;
+}
+.course-item summary {
+  display: grid;
+  grid-template-columns: 16px auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  list-style: none;
+  cursor: pointer;
+}
+.course-item summary::-webkit-details-marker { display: none; }
+.course-item summary::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid #111827; /* black triangle */
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+.course-item[open] summary::before {
+  transform: rotate(90deg);
+}
+.course-item:has(input:checked) {
+  background: #eaf7eb; /* light green */
+  border-color: #22c55e; /* green border */
+}
+.course-code a { text-decoration: none; color: #b91c1c; }
+.course-name { font-weight: 600; }
+.course-prereq {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+.course-extra {
+  padding: 0 12px 12px 36px; /* indent under the summary row */
+  color: #374151;
+  font-size: 14px;
+}
 
 

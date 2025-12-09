@@ -18,21 +18,17 @@
   </header>
 
   <main>
-    <div class="degree">Business and Computer Science Major</div>
+    <div class="degree">Bachelor of Science in Business + Computer Science</div>
 
     <section class="grid-2">
       <div class="card box">
-        <h3>General Requirements</h3>
+        <h3>General Degree Requirements</h3>
         <ul>
-          <li>
-            <label><input type="checkbox"> Writing Intensive</label>
-          </li>
-          <li>
-            <label><input type="checkbox"> Ethics Course</label>
-          </li>
-          <li>
-            <label><input type="checkbox"> Cultural Diversity</label>
-          </li>
+          <li>Complete at least 120 applicable units</li>
+          <li>Earn at least a C (2.0) cumulative grade point average in all applicable courses taken at WU</li>
+          <li>Earn at least a C (2.0) grade point average in each separate school of study</li>
+          <li>Complete a minimum of 60 units at Washington University (at least 30 units must be “B” courses and at least 30 units must be from “E” courses)</li>
+          <li>Complete the last 30 units at Washington University</li>
         </ul>
       </div>
       <div class="card box">
@@ -42,22 +38,88 @@
 
     <section id="foundation" class="card">
       <h2>Foundation Course Requirements</h2>
-      <h3>General degree requirements</h3>
-      <ul>
+      <ul class="course-list">
         <li>
-          <label><input type="checkbox"> Calculus I</label>
+          <details class="course-item">
+            <summary>
+              <div class="course-code">
+                <label><input type="checkbox"> <a href="#">Math 1510</a></label>
+              </div>
+              <div class="course-main">
+                <div class="course-name">Calculus I</div>
+              </div>
+              <div class="course-units">3</div>
+            </summary>
+            <div class="course-extra">
+              <p>Additional info can go here.</p>
+            </div>
+          </details>
         </li>
         <li>
-          <label><input type="checkbox"> Calculus II</label>
+          <details class="course-item">
+            <summary>
+              <div class="course-code">
+                <label><input type="checkbox"> <a href="#">Math 1520</a></label>
+              </div>
+              <div class="course-main">
+                <div class="course-name">Calculus II</div>
+                <div class="course-prereq">Prerequisites: Math 1510</div>
+              </div>
+              <div class="course-units">3</div>
+            </summary>
+            <div class="course-extra">
+              <p>Additional info can go here.</p>
+            </div>
+          </details>
         </li>
         <li>
-          <label><input type="checkbox"> Calculus III</label>
+          <details class="course-item">
+            <summary>
+              <div class="course-code">
+                <label><input type="checkbox"> <a href="#">Math 2130</a></label>
+              </div>
+              <div class="course-main">
+                <div class="course-name">Calculus III</div>
+                <div class="course-prereq">Prerequisites: Math 1520</div>
+              </div>
+              <div class="course-units">3</div>
+            </summary>
+            <div class="course-extra">
+              <p>Additional info can go here.</p>
+            </div>
+          </details>
         </li>
         <li>
-          <label><input type="checkbox"> Managerial Statistics</label>
+          <details class="course-item">
+            <summary>
+              <div class="course-code">
+                <label><input type="checkbox"> <a href="#">DAT 2130</a></label>
+              </div>
+              <div class="course-main">
+                <div class="course-name">Managerial Statistics I</div>
+              </div>
+              <div class="course-units">3</div>
+            </summary>
+            <div class="course-extra">
+              <p>Additional info can go here.</p>
+            </div>
+          </details>
         </li>
         <li>
-          <label><input type="checkbox"> Academic Writing</label>
+          <details class="course-item">
+            <summary>
+              <div class="course-code">
+                <label><input type="checkbox"> <a href="#">ENG 1100</a></label>
+              </div>
+              <div class="course-main">
+                <div class="course-name">Academic Writing</div>
+              </div>
+              <div class="course-units">3</div>
+            </summary>
+            <div class="course-extra">
+              <p>Additional info can go here.</p>
+            </div>
+          </details>
         </li>
       </ul>
     </section>
@@ -84,34 +146,104 @@
       <h2>Major Course Requirements</h2>
       <details>
         <summary>Business Analytics Cluster</summary>
-        <ul>
+        <ul class="course-list">
           <li>
-            <label><input type="checkbox"> Intro to Analytics</label>
+            <details class="course-item">
+              <summary>
+                <div class="course-code">
+                  <label><input type="checkbox"> <a href="#">BA 2100</a></label>
+                </div>
+                <div class="course-main">
+                  <div class="course-name">Intro to Analytics</div>
+                </div>
+                <div class="course-units">3</div>
+              </summary>
+              <div class="course-extra"><p>Additional info can go here.</p></div>
+            </details>
           </li>
           <li>
-            <label><input type="checkbox"> Data Visualization</label>
+            <details class="course-item">
+              <summary>
+                <div class="course-code">
+                  <label><input type="checkbox"> <a href="#">DS 2200</a></label>
+                </div>
+                <div class="course-main">
+                  <div class="course-name">Data Visualization</div>
+                  <div class="course-prereq">Prerequisites: BA 2100</div>
+                </div>
+                <div class="course-units">3</div>
+              </summary>
+              <div class="course-extra"><p>Additional info can go here.</p></div>
+            </details>
           </li>
         </ul>
       </details>
       <details>
         <summary>Strategy &amp; Leadership Cluster</summary>
-        <ul>
+        <ul class="course-list">
           <li>
-            <label><input type="checkbox"> Organizational Behavior</label>
+            <details class="course-item">
+              <summary>
+                <div class="course-code">
+                  <label><input type="checkbox"> <a href="#">ORG 3000</a></label>
+                </div>
+                <div class="course-main">
+                  <div class="course-name">Organizational Behavior</div>
+                </div>
+                <div class="course-units">3</div>
+              </summary>
+              <div class="course-extra"><p>Additional info can go here.</p></div>
+            </details>
           </li>
           <li>
-            <label><input type="checkbox"> Corporate Strategy</label>
+            <details class="course-item">
+              <summary>
+                <div class="course-code">
+                  <label><input type="checkbox"> <a href="#">STRAT 3200</a></label>
+                </div>
+                <div class="course-main">
+                  <div class="course-name">Corporate Strategy</div>
+                  <div class="course-prereq">Prerequisites: ORG 3000</div>
+                </div>
+                <div class="course-units">3</div>
+              </summary>
+              <div class="course-extra"><p>Additional info can go here.</p></div>
+            </details>
           </li>
         </ul>
       </details>
       <details>
         <summary>Computer Science Course Requirements</summary>
-        <ul>
+        <ul class="course-list">
           <li>
-            <label><input type="checkbox"> Data Structures</label>
+            <details class="course-item">
+              <summary>
+                <div class="course-code">
+                  <label><input type="checkbox"> <a href="#">CSE 2300</a></label>
+                </div>
+                <div class="course-main">
+                  <div class="course-name">Data Structures</div>
+                  <div class="course-prereq">Prerequisites: CSE 1301</div>
+                </div>
+                <div class="course-units">3</div>
+              </summary>
+              <div class="course-extra"><p>Additional info can go here.</p></div>
+            </details>
           </li>
           <li>
-            <label><input type="checkbox"> Algorithms</label>
+            <details class="course-item">
+              <summary>
+                <div class="course-code">
+                  <label><input type="checkbox"> <a href="#">CSE 2400</a></label>
+                </div>
+                <div class="course-main">
+                  <div class="course-name">Algorithms</div>
+                  <div class="course-prereq">Prerequisites: CSE 2300</div>
+                </div>
+                <div class="course-units">3</div>
+              </summary>
+              <div class="course-extra"><p>Additional info can go here.</p></div>
+            </details>
           </li>
         </ul>
       </details>
