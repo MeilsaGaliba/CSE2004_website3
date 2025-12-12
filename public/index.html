@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -11,8 +11,7 @@
     <div class="bar">
       <h1>Major/minor helper</h1>
       <nav>
-        <a href="#">All majors/minors</a>
-        <a href="#">Transfer database</a>
+        <a href="https://engineering.washu.edu/offices-services/student-services/undergraduate-student-services/transfer-course-database.html">Transfer database</a>
       </nav>
     </div>
   </header>
@@ -34,9 +33,10 @@
       <div class="card box advisor">
         <h3>AI Academic advisor chat</h3>
         <div id="chat">
-          <div id="chat-messages" class="course-extra"></div>
+          <div id="chat-messages" class="chat-messages"></div>
+          <div id="chat-meta" class="course-extra"></div>
           <form id="chat-form">
-            <input id="chat-input" type="text" placeholder="Ask about requirements, courses, plans..." style="width:100%;padding:8px;border:1px solid #e5e7eb;border-radius:8px;margin-top:8px" />
+            <input id="chat-input" type="text" placeholder="Ask about requirements, courses, plans..." />
           </form>
         </div>
       </div>
@@ -70,6 +70,17 @@
           <span class="stat-value"><span id="units-total">0</span> / 121</span>
         </div>
       </div>
+    </section>
+
+    <section id="custom" class="card">
+      <h2>Add completed course</h2>
+      <form id="add-course-form">
+        <input id="add-course-code" type="text" placeholder="Code (e.g., CSE 3999)" required />
+        <input id="add-course-name" type="text" placeholder="Name (e.g., Special Topics)" required />
+        <input id="add-course-units" type="number" min="0" step="0.5" placeholder="Units (e.g., 3)" required />
+        <button type="submit">Add</button>
+      </form>
+      <div id="custom-courses"></div>
     </section>
 
     <section id="foundation" class="card">
@@ -141,10 +152,6 @@
               </div>
               <div class="course-units">4</div>
             </summary>
-            <div class="course-extra">
-              <p><strong>Description:</strong> First course in business applications of statistics covering descriptive statistics, probability, inference, and simple linear regression with Excel.</p>
-              <p><strong>Typical periods offered:</strong> Fall, Spring.</p>
-            </div>
           </details>
         </li>
         <li>
@@ -159,10 +166,6 @@
               </div>
               <div class="course-units">3</div>
             </summary>
-            <div class="course-extra">
-              <p><strong>Description:</strong> Second course focused on forecasting with regression models; topics include collinearity, outliers, nonlinearity, heteroscedasticity, and time series.</p>
-              <p><strong>Typical periods offered:</strong> Fall, Spring.</p>
-            </div>
           </details>
         </li>
         <li>
@@ -176,10 +179,6 @@
               </div>
               <div class="course-units">3</div>
             </summary>
-            <div class="course-extra">
-              <p><strong>Description:</strong> Develops persuasive managerial writing and speaking through analysis of audience, organizational context, and problem framing; applies plain language and effective design.</p>
-              <p><strong>Typical periods offered:</strong> Fall, Spring.</p>
-            </div>
           </details>
         </li>
         <li>
@@ -206,7 +205,6 @@
               </div>
               <div class="course-units">3</div>
             </summary>
-            <div class="course-extra"><p>Satisfy with a themed College Writing course (grade C- or better).</p></div>
           </details>
         </li>
         <li>
@@ -220,7 +218,6 @@
               </div>
               <div class="course-units">3</div>
             </summary>
-            <div class="course-extra"><p>Anthropology, Biology, Chemistry, Earth & Planetary Sciences, Environmental Studies, or Physics (grade C- or better).</p></div>
           </details>
         </li>
       </ul>
@@ -398,7 +395,7 @@
         const b = sumCategory('business');
         const c = sumCategory('cs');
         const cap = sumCategory('capstone');
-        const br = sumCategory('breadth'); // currently none; placeholder for future
+        const br = sumCategory('breadth');
         out.foundation.textContent = f;
         out.business.textContent = b;
         out.cs.textContent = c;
@@ -407,10 +404,102 @@
         const total = f + b + c + cap + br;
         out.total.textContent = total;
       }
+      window.recalc = recalc;
       document.querySelectorAll('summary input[type=\"checkbox\"]').forEach(cb => {
         cb.addEventListener('change', recalc);
       });
       recalc();
+    }());
+
+    // Format prerequisites 
+    (function () {
+      document.querySelectorAll('.course-item .course-prereq').forEach((el) => {
+        const raw = (el.textContent || '').trim();
+        if (!raw) { el.remove(); return; }
+        const hasOptions = /^Options?:\s*/i.test(raw);
+        const hasPrereq = /^Prereq(?:uisite|uisites)?:\s*/i.test(raw);
+        const cleaned = raw.replace(/^(Prereq(?:uisite|uisites)?|Options?):\s*/i, '').trim();
+        if (!cleaned) { el.remove(); return; }
+        const label = hasOptions ? 'Options' : 'Prerequisites';
+        el.textContent = `(${label}: ${cleaned})`;
+      });
+      // "Options:"
+      document.querySelectorAll('.course-item .course-extra').forEach((el) => {
+        const txt = (el.textContent || '').trim();
+        if (!/^Options:\s*/i.test(txt)) return;
+        const main = el.parentElement?.querySelector('.course-main');
+        if (!main) return;
+        const span = document.createElement('span');
+        span.className = 'course-prereq';
+        span.textContent = `(Options: ${txt.replace(/^Options:\s*/i, '').trim()})`;
+        main.appendChild(span);
+      });
+    }());
+
+    (function () {
+      document.querySelectorAll('.course-item .course-extra').forEach(n => n.remove());
+    }());
+
+    // Add completed course form + auto-suggestinone category
+    (function () {
+      const form = document.getElementById('add-course-form');
+      const codeEl = document.getElementById('add-course-code');
+      const nameEl = document.getElementById('add-course-name');
+      const unitsInput = document.getElementById('add-course-units');
+      const listEl = document.getElementById('custom-courses');
+      if (!form || !codeEl || !nameEl || !listEl) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const code = codeEl.value.trim();
+        const name = nameEl.value.trim();
+        const unitsVal = (unitsInput && typeof unitsInput.value === 'string') ? unitsInput.value.trim() : '';
+        if (!code || !name || !unitsVal) return;
+        let suggested = 'custom';
+        try {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 1500);
+          const resp = await fetch('/api/categorize', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code, name }),
+            signal: controller.signal
+          });
+          clearTimeout(timer);
+          if (resp.ok) {
+            const data = await resp.json();
+            if (data && typeof data.category === 'string') {
+              suggested = data.category;
+            }
+          }
+        } catch {}
+        const details = document.createElement('details');
+        details.className = 'course-item';
+        details.setAttribute('data-category', suggested || 'custom');
+        details.open = true;
+        details.innerHTML = `
+<summary>
+  <div class="course-code">
+    <label><input type="checkbox" checked> <a href="#">${code}</a></label>
+  </div>
+  <div class="course-main">
+    <div class="course-name">${name}</div>
+    <span class="course-prereq">(Suggested: ${ (suggested || 'custom').replace(/\b\w/g, m => m.toUpperCase()) })</span>
+  </div>
+  <div class="course-units">${unitsVal ? unitsVal : ''}</div>
+</summary>
+<div class="course-extra">
+  <p><strong>Description:</strong></p>
+</div>`;
+        listEl.appendChild(details);
+        const cb = details.querySelector('summary input[type="checkbox"]');
+        if (cb) cb.addEventListener('change', () => { if (window.recalc) window.recalc(); });
+        if (window.recalc) window.recalc();
+        codeEl.value = '';
+        nameEl.value = '';
+        if (unitsInput) unitsInput.value = '';
+        codeEl.focus();
+      });
     }());
 
     (function () {
@@ -419,35 +508,89 @@
       const box = document.getElementById('chat-messages');
       if (!form || !input || !box) return;
 
+      const history = [];
+
       function append(role, text) {
-        const p = document.createElement('p');
-        p.textContent = (role === 'user' ? 'You: ' : 'Advisor: ') + text;
-        box.appendChild(p);
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-msg ' + (role === 'user' ? 'user' : 'assistant');
+        function escapeHtml(str) {
+          return str
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+        }
+        function renderInlineMarkdown(str) {
+          const esc = escapeHtml(str);
+          // bold: **text**
+          return esc
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\n/g, '<br>');
+        }
+        const rendered = renderInlineMarkdown(text);
+        bubble.innerHTML = (role === 'user' ? 'You: ' : 'Advisor: ') + rendered;
+        box.appendChild(bubble);
         box.scrollTop = box.scrollHeight;
+      }
+      // typing spinner
+      function startThinking(bubble) {
+        const frames = ['.', '..', '...', '....', '.....', '.', '..', '...', '....'];
+        let i = 0;
+        const base = 'Advisor: ';
+        const id = setInterval(() => {
+          bubble.textContent = base + frames[i % frames.length];
+          i += 1;
+        }, 250);
+        return () => clearInterval(id);
       }
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const q = input.value.trim();
         if (!q) return;
+        input.disabled = true;
         append('user', q);
+        history.push({ role: 'user', content: q });
         input.value = '';
-        const thinking = document.createElement('p');
+        const thinking = document.createElement('div');
+        thinking.className = 'chat-msg assistant';
         thinking.textContent = 'Advisor: ...';
         box.appendChild(thinking);
+        const stopThinking = startThinking(thinking);
         try {
+          // collect checked/complete courses to send as context
+          const checked = [];
+          document.querySelectorAll('details.course-item').forEach(d => {
+            const cb = d.querySelector('summary input[type="checkbox"]');
+            if (cb && cb.checked) {
+              const code = (d.querySelector('.course-code a')?.textContent || '').trim();
+              const name = (d.querySelector('.course-name')?.textContent || '').trim();
+              const units = (d.querySelector('.course-units')?.textContent || '').trim();
+              const category = d.getAttribute('data-category') || '';
+              checked.push({ code, name, units, category });
+            }
+          });
+          const meta = document.getElementById('chat-meta');
+          if (meta) meta.textContent = `Using ${checked.length} completed courses`;
           const res = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: q })
+            body: JSON.stringify({ message: q, history, checked })
           });
           const data = await res.json();
+          stopThinking();
           thinking.remove();
-          append('assistant', data.reply || 'Sorry, no response.');
+          const reply = data && typeof data.reply === 'string' ? data.reply : 'Sorry, no response.';
+          append('assistant', reply);
+          history.push({ role: 'assistant', content: reply });
         } catch (err) {
+          stopThinking();
           thinking.remove();
           append('assistant', 'Error contacting advisor server.');
         }
+        input.disabled = false;
+        input.focus();
       });
     }());
   </script>
